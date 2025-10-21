@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Section from './Section';
 
-const UrgencySectionVIP: React.FC = () => {
+interface UrgencySectionVIPProps {
+  onSelectTier: (tier: string) => void;
+}
+
+const UrgencySectionVIP: React.FC<UrgencySectionVIPProps> = ({ onSelectTier }) => {
   const calculateTimeLeft = () => {
     const now = new Date();
     const nextMidnight = new Date(now);
@@ -9,7 +13,7 @@ const UrgencySectionVIP: React.FC = () => {
     nextMidnight.setHours(0, 0, 0, 0);
 
     const difference = +nextMidnight - +now;
-    let timeLeft = {};
+    let timeLeft: { horas?: number; minutos?: number; segundos?: number } = {};
 
     if (difference > 0) {
       timeLeft = {
@@ -30,24 +34,31 @@ const UrgencySectionVIP: React.FC = () => {
     }, 1000);
 
     return () => clearTimeout(timer);
-  });
+  }, [timeLeft]); // Added dependency array
 
-  const timerComponents: JSX.Element[] = [];
+  const timerComponents = [];
 
-  Object.keys(timeLeft).forEach((interval) => {
-    // @ts-ignore
-    if (!timeLeft[interval]) {
-      return;
-    }
+  // Always render all three components, display 00 if value is undefined
+  timerComponents.push(
+    <span key="horas" className="text-center mx-1">
+      <span className="text-3xl font-bold">{String(timeLeft.horas || 0).padStart(2, '0')}</span>
+      <span className="text-sm uppercase block">horas</span>
+    </span>
+  );
+  timerComponents.push(
+    <span key="minutos" className="text-center mx-1">
+      <span className="text-3xl font-bold">{String(timeLeft.minutos || 0).padStart(2, '0')}</span>
+      <span className="text-sm uppercase block">minutos</span>
+    </span>
+  );
+  timerComponents.push(
+    <span key="segundos" className="text-center mx-1">
+      <span className="text-3xl font-bold">{String(timeLeft.segundos || 0).padStart(2, '0')}</span>
+      <span className="text-sm uppercase block">segundos</span>
+    </span>
+  );
 
-    timerComponents.push(
-      <span key={interval} className="text-center mx-1">
-        {/* @ts-ignore */}
-        <span className="text-3xl font-bold">{String(timeLeft[interval]).padStart(2, '0')}</span>
-        <span className="text-sm uppercase block">{interval}</span>
-      </span>
-    );
-  });
+  const offerEnded = !timeLeft.horas && !timeLeft.minutos && !timeLeft.segundos && Object.keys(timeLeft).length > 0;
 
   return (
     <Section className="bg-brand-dark text-brand-light py-16" id="urgency-offer-vip">
@@ -58,12 +69,12 @@ const UrgencySectionVIP: React.FC = () => {
         <p className="text-xl mb-6">
           Accede al nivel <span className="text-brand-gold font-bold">Brow Expert VIP</span>
         </p>
-        <p className="text-5xl font-extrabold mb-8">
-          <span className="line-through text-gray-500 mr-4">$399</span>
-          <span className="text-brand-gold">$59</span>
+        <p className="text-5xl font-extrabold mb-8 bg-red-500 text-white px-4 py-2 rounded-lg inline-block">
+          <span className="line-through text-gray-300 mr-4">$399</span>
+          <span>$59</span>
         </p>
 
-        {timerComponents.length ? (
+        {!offerEnded ? (
           <div className="flex justify-center items-center mb-8">
             <p className="text-xl mr-4">Termina en:</p>
             {timerComponents}
@@ -73,7 +84,11 @@ const UrgencySectionVIP: React.FC = () => {
         )}
 
         <a
-          href="#registration-form?tier=Brow Expert VIP"
+          href="#registration-form"
+          onClick={() => {
+            onSelectTier('Brow Expert VIP');
+            window.location.hash = "registration-form";
+          }}
           className="mt-8 inline-block rounded-full border border-brand-gold bg-brand-gold px-12 py-3 text-sm font-medium text-brand-dark transition hover:opacity-90 focus:outline-none focus:ring"
         >
           ¡Aprovecha la Oferta VIP Ahora! (Cupos Muy Limitados)
