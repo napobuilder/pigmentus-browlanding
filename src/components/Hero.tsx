@@ -1,15 +1,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import Countdown from './Countdown';
 
 interface HeroProps {
   targetDate: string;
-  preselectTier?: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ targetDate, preselectTier }) => {
+const Hero: React.FC<HeroProps> = ({ targetDate }) => {
   const targetDateObj = new Date(targetDate);
 
   return (
