@@ -49,7 +49,9 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onTierChange, prese
     }
   }, [preselectTierFromParent, setValue, watchedTier]);
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData, event?: React.BaseSyntheticEvent) => {
+    event?.preventDefault(); // Prevent default form submission
+
     console.log('Submitting data:', data);
 
     const whatsappMessage = encodeURIComponent(
@@ -60,7 +62,31 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onTierChange, prese
       `He elegido el nivel: ${data.tier}`
     );
 
-    window.location.href = `https://wa.me/584128998666?text=${whatsappMessage}`;
+    // Prepare data for Netlify Forms
+    const form = event?.target as HTMLFormElement;
+    const netlifyFormData = new FormData();
+    netlifyFormData.append('form-name', form.name); // Required by Netlify
+    Object.entries(data).forEach(([key, value]) => {
+      netlifyFormData.append(key, value);
+    });
+    // Add honeypot field if it exists
+    const honeypotField = form.querySelector('[name="bot-field"]') as HTMLInputElement;
+    if (honeypotField) {
+      netlifyFormData.append(honeypotField.name, honeypotField.value);
+    }
+
+    try {
+      await fetch('/', { // Netlify forms submit to the root path
+        method: 'POST',
+        body: netlifyFormData,
+      });
+      console.log('Form successfully submitted to Netlify');
+      // Proceed with WhatsApp redirection after successful Netlify submission
+      window.location.href = `https://wa.me/584128998666?text=${whatsappMessage}`;
+    } catch (error) {
+      console.error('Netlify form submission failed:', error);
+      alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
+    }
   };
 
   return (
@@ -68,6 +94,10 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onTierChange, prese
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8 text-brand-dark">Inscríbete <span className='text-brand-gold'>Ahora</span></h2>
         <form onSubmit={handleSubmit(onSubmit)} name="registration" data-netlify="true" className="max-w-lg mx-auto bg-brand-white p-8 rounded-lg shadow-lg">
+          {/* Netlify Honeypot for spam protection */}
+          <p className="hidden">
+            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+          </p>
           <div className="mb-4">
             <label htmlFor="name" className="block text-brand-dark font-bold mb-2">Nombre Completo</label>
             <input type="text" id="name" {...register('name')} className="w-full px-3 py-2 leading-tight text-brand-dark border rounded-md bg-brand-white focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold" />

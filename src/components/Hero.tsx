@@ -59,19 +59,19 @@ const Hero: React.FC<HeroProps> = ({ targetDate, preselectTier }) => {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="mt-8 flex flex-wrap justify-center gap-4"
           >
-            <Link
-              to={`/registro${preselectTier ? `?tier=${preselectTier}` : ''}`}
+            <a
+              href="#registration-form"
               className="block w-full rounded border border-brand-gold bg-brand-gold px-12 py-3 text-sm font-medium text-brand-dark transition hover:bg-transparent hover:text-brand-gold focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
             >
-              Regístrate Ahora
-            </Link>
+              ¡Inscríbete y Domina el Arte!
+            </a>
 
-            <Link
-              to="#features"
+            <a
+              href="#features"
               className="block w-full rounded border border-brand-gold px-12 py-3 text-sm font-medium text-brand-gold transition hover:bg-brand-gold hover:text-brand-dark focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
             >
-              Ver Contenido
-            </Link>
+              Explorar el Programa
+            </a>
           </motion.div>
         </div>
       </div>
