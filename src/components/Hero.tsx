@@ -57,8 +57,8 @@ const Hero: React.FC = () => {
             className="text-3xl font-extrabold text-brand-gold sm:text-5xl"
           >
             <img src="/logopigmentus.svg" alt="Pigmentus Logo" className="mx-auto h-32 mb-8" />
-            Renueva tu mirada.
-            <span className="sm:block"> Redescubre la forma que te define. </span>
+            Domina el Arte del Diseño de Cejas.
+            <span className="sm:block"> Transforma tu Pasión en una Carrera Exitosa. </span>
           </motion.h1>
 
           <motion.p
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed"
           >
-            Domina las técnicas más avanzadas de diseño de cejas y transforma tu pasión en una carrera de éxito.
+            Aprende las técnicas esenciales de diseño y micropigmentación, y conviértete en una profesional certificada lista para construir tu propio negocio.
           </motion.p>
 
           {timerComponents.length ? (

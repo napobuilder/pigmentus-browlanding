@@ -8,7 +8,7 @@ import Instructor from '../components/Instructor';
 import CTA from '../components/CTA';
 import RegistrationForm from '../components/RegistrationForm';
 import Footer from '../components/Footer';
-import UrgencySection from '../components/UrgencySection';
+import UrgencySectionVIP from '../components/UrgencySectionVIP';
 
 const HomePage: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
       <Testimonials />
       <Instructor />
       <Tiers />
-      <UrgencySection />
+      <UrgencySectionVIP />
       <CTA />
       <RegistrationForm />
       <Footer />

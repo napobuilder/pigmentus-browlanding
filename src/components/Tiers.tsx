@@ -32,7 +32,7 @@ const Tiers: React.FC = () => {
           <div className="border-2 border-brand-gold bg-brand-white rounded-lg p-8 flex flex-col relative shadow-2xl">
             <span className="bg-brand-gold text-brand-dark px-3 py-1 text-sm font-bold absolute top-0 -mt-3 rounded-full">MÁS POPULAR</span>
             <h3 className="text-2xl font-bold mb-4">Brow Revert</h3>
-            <p className="text-4xl font-bold mb-4"><span className="line-through text-gray-500 text-2xl mr-2">$500</span> $39</p>
+            <p className="text-4xl font-bold mb-4"><span className="line-through text-gray-500 text-2xl mr-2">$199</span> $39</p>
             <ul className="text-lg mb-8 flex-grow">
               <li className="mb-2">Todo lo de Brow Atelier</li>
               <li className="mb-2">Certificado digital</li>
@@ -54,7 +54,7 @@ const Tiers: React.FC = () => {
           {/* Tier 3 */}
           <div className="border bg-brand-white rounded-lg p-8 flex flex-col shadow-lg">
             <h3 className="text-2xl font-bold mb-4">Brow Expert VIP</h3>
-            <p className="text-4xl font-bold mb-4"><span className="line-through text-gray-500 text-2xl mr-2">$700</span> $59</p>
+            <p className="text-4xl font-bold mb-4"><span className="line-through text-gray-500 text-2xl mr-2">$399</span> $59</p>
             <ul className="text-lg mb-8 flex-grow">
               <li className="mb-2">Todo lo de Brow Revert</li>
               <li className="mb-2">Kit completo profesional</li>
