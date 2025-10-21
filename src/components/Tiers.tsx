@@ -26,13 +26,13 @@ const Tiers: React.FC = () => {
                 <div className="bg-brand-gold h-2.5 rounded-full" style={{ width: '10%' }}></div>
               </div>
             </div>
-            <button className="border border-brand-dark text-brand-dark font-bold py-2 px-4 rounded transition hover:bg-brand-dark hover:text-brand-light">Regístrate Gratis</button>
+            <button className="border border-brand-dark text-brand-dark font-bold py-2 px-4 rounded transition hover:bg-brand-dark hover:text-brand-light" onClick={() => window.location.href = '#registration-form'}>Regístrate Gratis</button>
           </div>
           {/* Tier 2 */}
           <div className="border-2 border-brand-gold bg-brand-white rounded-lg p-8 flex flex-col relative shadow-2xl">
             <span className="bg-brand-gold text-brand-dark px-3 py-1 text-sm font-bold absolute top-0 -mt-3 rounded-full">MÁS POPULAR</span>
             <h3 className="text-2xl font-bold mb-4">Brow Revert</h3>
-            <p className="text-4xl font-bold mb-4">$39</p>
+            <p className="text-4xl font-bold mb-4"><span className="line-through text-gray-500 text-2xl mr-2">$500</span> $39</p>
             <ul className="text-lg mb-8 flex-grow">
               <li className="mb-2">Todo lo de Brow Atelier</li>
               <li className="mb-2">Certificado digital</li>
@@ -49,12 +49,12 @@ const Tiers: React.FC = () => {
                 <div className="bg-brand-gold h-2.5 rounded-full" style={{ width: '46%' }}></div>
               </div>
             </div>
-            <button className="bg-brand-gold text-brand-dark font-bold py-2 px-4 rounded transition hover:opacity-90">Comprar Ahora</button>
+            <button className="bg-brand-gold text-brand-dark font-bold py-2 px-4 rounded transition hover:opacity-90" onClick={() => window.location.href = '#registration-form'}>Comprar Ahora</button>
           </div>
           {/* Tier 3 */}
           <div className="border bg-brand-white rounded-lg p-8 flex flex-col shadow-lg">
             <h3 className="text-2xl font-bold mb-4">Brow Expert VIP</h3>
-            <p className="text-4xl font-bold mb-4">$59</p>
+            <p className="text-4xl font-bold mb-4"><span className="line-through text-gray-500 text-2xl mr-2">$700</span> $59</p>
             <ul className="text-lg mb-8 flex-grow">
               <li className="mb-2">Todo lo de Brow Revert</li>
               <li className="mb-2">Kit completo profesional</li>
@@ -70,7 +70,7 @@ const Tiers: React.FC = () => {
                 <div className="bg-brand-gold h-2.5 rounded-full" style={{ width: '70%' }}></div>
               </div>
             </div>
-            <button className="bg-brand-dark text-brand-gold font-bold py-2 px-4 rounded transition hover:bg-opacity-90">Inscripción VIP</button>
+            <button className="bg-brand-dark text-brand-gold font-bold py-2 px-4 rounded transition hover:bg-opacity-90" onClick={() => window.location.href = '#registration-form'}>Inscripción VIP</button>
           </div>
         </div>
       </div>

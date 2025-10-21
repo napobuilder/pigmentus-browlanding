@@ -56,6 +56,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="text-3xl font-extrabold text-brand-gold sm:text-5xl"
           >
+            <img src="/logopigmentus.svg" alt="Pigmentus Logo" className="mx-auto h-32 mb-8" />
             Renueva tu mirada.
             <span className="sm:block"> Redescubre la forma que te define. </span>
           </motion.h1>
@@ -97,14 +98,14 @@ const Hero: React.FC = () => {
           >
             <a
               className="block w-full rounded border border-brand-gold bg-brand-gold px-12 py-3 text-sm font-medium text-brand-dark transition hover:bg-transparent hover:text-brand-gold focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-              href="#"
+              href="#registration-form"
             >
               Regístrate Ahora
             </a>
 
             <a
               className="block w-full rounded border border-brand-gold px-12 py-3 text-sm font-medium text-brand-gold transition hover:bg-brand-gold hover:text-brand-dark focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-              href="#"
+              href="#features"
             >
               Ver Contenido
             </a>

@@ -5,19 +5,29 @@ import Section from './Section';
 const Testimonials: React.FC = () => {
   const testimonials = [
     {
-      quote: '¡Este curso cambió mi vida! Pasé de no saber nada a tener mi propio negocio de cejas en semanas.',
-      name: 'Ana Pérez',
-      title: 'Estudiante de Brow Rebirth',
+      quote: 'Tomé el curso de Powder Brow. Excelente servicio y trato profesional que te hace sentir como en familia. Más que un local, es un hogar para salir realizada.',
+      name: 'Alayla Ortiz',
+      title: 'Alumna de Powder Brow',
     },
     {
-      quote: 'La calidad del contenido y el soporte son increíbles. Lo recomiendo al 100%.',
-      name: 'María Rodríguez',
-      title: 'Estudiante de Brow Rebirth',
+      quote: '¡Encantada con el profesionalismo de la profesora Lizette Piñero y su equipo! Feliz de haberlos escogido para mi capacitación.',
+      name: 'Lisbeth Báez González',
+      title: 'Alumna satisfecha',
     },
     {
-      quote: 'Nunca pensé que podría lograr resultados tan profesionales. ¡Gracias!',
-      name: 'Carla Gómez',
-      title: 'Estudiante de Brow Rebirth',
+      quote: 'La mejor academia, muy profesional en sus servicios y el método de educación. ¡Las cejas impecables!',
+      name: 'Promociónate PR',
+      title: 'Empresaria',
+    },
+    {
+      quote: '¡Espectacular el trato y ambiente relajador! El trabajo es muy profesional y de calidad. ¡Lo recomiendo al 100%!',
+      name: 'Milly Pérez',
+      title: 'Clienta satisfecha',
+    },
+    {
+      quote: 'Excelente trabajo de microblading. Las cejas se ven bien naturales.',
+      name: 'Nidia Muñoz',
+      title: 'Clienta de Microblading',
     },
   ];
 

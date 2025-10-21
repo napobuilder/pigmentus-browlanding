@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -14,9 +14,30 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const RegistrationForm: React.FC = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+  // Get tier from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const preselectedTier = urlParams.get('tier');
+
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormData>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      // Set default tier if valid, otherwise use 'Brow Atelier'
+      tier: preselectedTier && schema.shape.tier.options.includes(preselectedTier)
+        ? preselectedTier as 'Brow Atelier' | 'Brow Revert' | 'Brow Expert VIP'
+        : 'Brow Atelier',
+    },
   });
+
+  // Use useEffect to scroll to the form if a tier is preselected
+  useEffect(() => {
+    if (preselectedTier) {
+      const element = document.getElementById('registration-form');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [preselectedTier]);
+
 
   const onSubmit = (data: FormData) => {
     console.log(data);
@@ -25,7 +46,7 @@ const RegistrationForm: React.FC = () => {
   };
 
   return (
-    <Section className="bg-brand-light py-16">
+    <Section id="registration-form" className="bg-brand-light py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8 text-brand-dark">Inscríbete <span class='text-brand-gold'>Ahora</span></h2>
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto bg-brand-white p-8 rounded-lg shadow-lg">

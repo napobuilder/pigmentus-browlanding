@@ -14,7 +14,7 @@ const CTA: React.FC = () => {
           </p>
 
           <a
-            href="#"
+            href="#registration-form"
             className="mt-8 inline-block rounded-full border border-brand-gold bg-brand-gold px-12 py-3 text-sm font-medium text-brand-dark transition hover:opacity-90 focus:outline-none focus:ring"
           >
             ¡Quiero mi cupo!
