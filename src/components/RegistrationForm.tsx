@@ -24,7 +24,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onTierChange, prese
   const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {
-      tier: preselectTierFromParent && schema.shape.tier.options.includes(preselectTierFromParent)
+      tier: (preselectTierFromParent && schema.shape.tier.options.includes(preselectTierFromParent as any))
         ? preselectTierFromParent as 'Brow Atelier' | 'Brow Revert' | 'Brow Expert VIP'
         : 'Brow Atelier',
     },
@@ -66,7 +66,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onTierChange, prese
   return (
     <Section id="registration-form" className="bg-brand-light py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8 text-brand-dark">Inscríbete <span class='text-brand-gold'>Ahora</span></h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-brand-dark">Inscríbete <span className='text-brand-gold'>Ahora</span></h2>
         <form onSubmit={handleSubmit(onSubmit)} name="registration" data-netlify="true" className="max-w-lg mx-auto bg-brand-white p-8 rounded-lg shadow-lg">
           <div className="mb-4">
             <label htmlFor="name" className="block text-brand-dark font-bold mb-2">Nombre Completo</label>

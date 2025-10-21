@@ -34,7 +34,7 @@ const Testimonials: React.FC = () => {
   return (
     <Section className="bg-brand-dark py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8 text-brand-light">Lo que dicen <span class='text-brand-gold'>nuestras alumnas</span></h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-brand-light">Lo que dicen <span className='text-brand-gold'>nuestras alumnas</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-brand-dark border border-brand-gold/20 rounded-lg p-8 shadow-lg">

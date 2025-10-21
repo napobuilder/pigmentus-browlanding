@@ -17,7 +17,7 @@ const Features: React.FC = () => {
   return (
     <Section id="features" className="bg-brand-light text-brand-dark py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">¿Qué aprenderás en <span class='text-brand-gold'>Brow Rebirth?</span></h2>
+        <h2 className="text-3xl font-bold text-center mb-8">¿Qué aprenderás en <span className='text-brand-gold'>Brow Rebirth?</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="bg-brand-white rounded-lg p-6 flex items-center shadow-md">
