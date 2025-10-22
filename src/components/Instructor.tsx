@@ -35,13 +35,13 @@ const Instructor: React.FC = () => {
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
           >
             <h2 className="text-3xl font-bold text-brand-dark sm:text-4xl mb-4">
-              Conoce a tu Master Instructora, <span className="text-brand-gold">Lizette Piñero</span>
+              Soy tu Master Instructora, <span className="text-brand-gold">Lizette Piñero</span>
             </h2>
             <p className="text-brand-dark/80 text-lg mb-6">
-              Como pionera de la micropigmentación manual en Puerto Rico y con más de 35 años de experiencia, Lizette no solo ha definido el estándar de la industria, sino que ha dedicado su vida a elevarlo.
+              Como pionera de la micropigmentación manual en Puerto Rico y con más de 35 años de experiencia, no solo he definido el estándar de la industria, sino que he dedicado mi vida a elevarlo.
             </p>
             <p className="text-brand-dark/80 text-lg mb-6">
-              Su misión va más allá de la técnica: busca forjar verdaderos artistas de la belleza, entregando el conocimiento y la visión de negocio necesarios para construir una carrera de éxito y prestigio.
+              Mi misión va más allá de la técnica: busco forjar verdaderos artistas de la belleza, entregando el conocimiento y la visión de negocio necesarios para construir una carrera de éxito y prestigio.
             </p>
             <ul className="space-y-3 text-brand-dark/90">
               <li className="flex items-center">
@@ -63,6 +63,14 @@ const Instructor: React.FC = () => {
             </ul>
           </motion.div>
 
+        </div>
+        <div className="text-center mt-12">
+          <a
+            href="#registration-form"
+            className="inline-block rounded-full border border-brand-gold bg-brand-gold px-12 py-3 text-lg font-medium text-brand-dark transition hover:bg-transparent hover:text-brand-gold focus:outline-none focus:ring active:text-opacity-75"
+          >
+            ¡Conoce Mi Método y Inscríbete!
+          </a>
         </div>
       </div>
     </Section>

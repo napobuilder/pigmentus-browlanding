@@ -44,6 +44,14 @@ const Testimonials: React.FC = () => {
             </div>
           ))}
         </div>
+        <div className="text-center mt-12">
+          <a
+            href="#registration-form"
+            className="inline-block rounded-full border border-brand-gold bg-brand-gold px-12 py-3 text-lg font-medium text-brand-dark transition hover:bg-transparent hover:text-brand-gold focus:outline-none focus:ring active:text-opacity-75"
+          >
+            ¡Inscríbete y Transforma tu Futuro!
+          </a>
+        </div>
       </div>
     </Section>
   );

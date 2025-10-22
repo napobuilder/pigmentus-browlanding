@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import Tiers from '../components/Tiers';
 import Features from '../components/Features';
 import Testimonials from '../components/Testimonials';
+import BeforeAfterGallery from '../components/BeforeAfterGallery';
 import SuccessStory from '../components/SuccessStory';
 import Instructor from '../components/Instructor';
 import CTA from '../components/CTA';
@@ -25,8 +26,9 @@ const HomePage: React.FC = () => {
       <Hero targetDate="2025-11-11T18:00:00" />
       <Features />
       <Testimonials />
-      <SuccessStory />
+      <BeforeAfterGallery />
       <Instructor />
+      <SuccessStory />
       <Tiers />
       <CTA />
       <RegistrationForm
