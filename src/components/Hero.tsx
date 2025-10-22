@@ -14,7 +14,7 @@ const Hero: React.FC<HeroProps> = ({ targetDate }) => {
     <section className="relative bg-brand-dark text-brand-light overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-        style={{ backgroundImage: 'url(/IMG_1709.PNG)' }}
+        style={{ backgroundImage: 'url(/IMG_1709.webp)' }}
       ></div>
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center relative z-10">
@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({ targetDate }) => {
             transition={{ duration: 0.5 }}
             className="text-3xl font-extrabold text-brand-gold sm:text-5xl"
           >
-            <img src="/logopigmentus.svg" alt="Pigmentus Logo" className="mx-auto h-32 mb-8" />
+            <img src="/logopigmentus.svg" alt="Pigmentus Logo" className="mx-auto h-32 mb-8" loading="lazy" />
             Domina el Arte del Diseño de Cejas.
             <span className="sm:block"> Transforma tu Pasión en una Carrera Exitosa. </span>
           </motion.h1>

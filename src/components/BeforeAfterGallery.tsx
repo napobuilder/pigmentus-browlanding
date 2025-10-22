@@ -5,15 +5,15 @@ import { motion } from 'framer-motion';
 
 const BeforeAfterGallery: React.FC = () => {
   const images = [
-    { src: '/IMG_1706.PNG', alt: 'Trabajo de micropigmentación' },
-    { src: '/IMG_1707.PNG', alt: 'Trabajo de micropigmentación' },
-    { src: '/IMG_1708.PNG', alt: 'Trabajo de micropigmentación' },
-    { src: '/IMG_1709.PNG', alt: 'Trabajo de micropigmentación' },
-    { src: '/IMG_1710.PNG', alt: 'Trabajo de micropigmentación' },
-    { src: '/IMG_1711.PNG', alt: 'Trabajo de micropigmentación' },
-    { src: '/IMG_1712.PNG', alt: 'Trabajo de micropigmentación' },
-    { src: '/IMG_1713.PNG', alt: 'Trabajo de micropigmentación' },
-    { src: '/IMG_1714.PNG', alt: 'Trabajo de micropigmentación' },
+    { src: '/IMG_1706.webp', alt: 'Trabajo de micropigmentación' },
+    { src: '/IMG_1707.webp', alt: 'Trabajo de micropigmentación' },
+    { src: '/IMG_1708.webp', alt: 'Trabajo de micropigmentación' },
+    { src: '/IMG_1709.webp', alt: 'Trabajo de micropigmentación' },
+    { src: '/IMG_1710.webp', alt: 'Trabajo de micropigmentación' },
+    { src: '/IMG_1711.webp', alt: 'Trabajo de micropigmentación' },
+    { src: '/IMG_1712.webp', alt: 'Trabajo de micropigmentación' },
+    { src: '/IMG_1713.webp', alt: 'Trabajo de micropigmentación' },
+    { src: '/IMG_1714.webp', alt: 'Trabajo de micropigmentación' },
   ];
 
   return (
@@ -34,6 +34,7 @@ const BeforeAfterGallery: React.FC = () => {
                 src={image.src}
                 alt={image.alt}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-black bg-opacity-25 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-white text-lg font-semibold">{image.alt}</p>
