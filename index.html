@@ -7,6 +7,16 @@
     <title>pigmentus-landingpage</title>
   </head>
   <body>
+    <form name="registration" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="tier">
+        <option>Brow Atelier</option>
+        <option>Brow Revert</option>
+        <option>Brow Expert VIP</option>
+      </select>
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
