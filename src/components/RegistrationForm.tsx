@@ -1,5 +1,3 @@
-
-
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -49,10 +47,14 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onTierChange, prese
     }
   }, [preselectTierFromParent, setValue, watchedTier]);
 
-  const onSubmit = async (data: FormData, event?: React.BaseSyntheticEvent) => {
-    event?.preventDefault(); // Prevent default form submission
+  const encode = (data: { [key: string]: any }) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
 
-    console.log('Submitting data:', data);
+  const onSubmit = async (data: FormData, event?: React.BaseSyntheticEvent) => {
+    event?.preventDefault();
 
     const whatsappMessage = encodeURIComponent(
       `¡Hola! Me quiero registrar para el curso de cejas.\n` +
@@ -62,27 +64,14 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onTierChange, prese
       `He elegido el nivel: ${data.tier}`
     );
 
-    // Prepare data for Netlify Forms
-    const form = event?.target as HTMLFormElement;
-    const netlifyFormData = new FormData();
-    netlifyFormData.append('form-name', form.name); // Required by Netlify
-    Object.entries(data).forEach(([key, value]) => {
-      netlifyFormData.append(key, value);
-    });
-    // Add honeypot field if it exists
-    const honeypotField = form.querySelector('[name="bot-field"]') as HTMLInputElement;
-    if (honeypotField) {
-      netlifyFormData.append(honeypotField.name, honeypotField.value);
-    }
-
     try {
-      await fetch('/', { // Netlify forms submit to the root path
-        method: 'POST',
-        body: netlifyFormData,
+      await fetch("", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "registration", ...data })
       });
       console.log('Form successfully submitted to Netlify');
-      // Proceed with WhatsApp redirection after successful Netlify submission
-      window.location.href = `https://wa.me/584128998666?text=${whatsappMessage}`;
+      window.location.href = `https://wa.me/17872106953?text=${whatsappMessage}`;
     } catch (error) {
       console.error('Netlify form submission failed:', error);
       alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
@@ -93,8 +82,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onTierChange, prese
     <Section id="registration-form" className="bg-brand-light py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8 text-brand-dark">Inscríbete <span className='text-brand-gold'>Ahora</span></h2>
-        <form onSubmit={handleSubmit(onSubmit)} name="registration" data-netlify="true" className="max-w-lg mx-auto bg-brand-white p-8 rounded-lg shadow-lg">
-          {/* Netlify Honeypot for spam protection */}
+        <form onSubmit={handleSubmit(onSubmit)} name="registration" data-netlify="true" data-netlify-honeypot="bot-field" className="max-w-lg mx-auto bg-brand-white p-8 rounded-lg shadow-lg">
+          <input type="hidden" name="form-name" value="registration" />
           <p className="hidden">
             <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
           </p>

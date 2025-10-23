@@ -39,8 +39,8 @@ const HomePage: React.FC = () => {
         <UrgencyOffer 
           tier="Brow Revert"
           title="¡Oferta Exclusiva por Tiempo Limitado!"
-          originalPrice="$199"
-          finalPrice="$39"
+          originalPrice="$239"
+          finalPrice="$47"
           ctaText="¡Aprovecha Ahora! (Cupos Limitados)"
           onSelectTier={handleSelectTier} 
         />
@@ -48,8 +48,8 @@ const HomePage: React.FC = () => {
       <UrgencyOffer 
         tier="Brow Expert VIP"
         title="¡Oferta VIP Exclusiva por Tiempo Limitado!"
-        originalPrice="$399"
-        finalPrice="$59"
+        originalPrice="$479"
+        finalPrice="$71"
         ctaText="¡Aprovecha la Oferta VIP Ahora! (Cupos Muy Limitados)"
         isVip={true}
         onSelectTier={handleSelectTier}
