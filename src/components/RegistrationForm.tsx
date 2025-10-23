@@ -53,7 +53,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onTierChange, prese
       .join("&");
   }
 
-  const onSubmit = async (data: FormData, event?: React.BaseSyntheticEvent) => {
+  const onSubmit = (data: FormData, event?: React.BaseSyntheticEvent) => {
     event?.preventDefault();
 
     const whatsappMessage = encodeURIComponent(
@@ -64,18 +64,19 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onTierChange, prese
       `He elegido el nivel: ${data.tier}`
     );
 
-    try {
-      await fetch("", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "registration", ...data })
-      });
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "registration", ...data })
+    })
+    .then(() => {
       console.log('Form successfully submitted to Netlify');
       window.location.href = `https://wa.me/17872106953?text=${whatsappMessage}`;
-    } catch (error) {
+    })
+    .catch(error => {
       console.error('Netlify form submission failed:', error);
       alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
-    }
+    });
   };
 
   return (
