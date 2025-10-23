@@ -55,7 +55,7 @@ const SuccessStory: React.FC = () => {
 
             <h3 className="text-2xl font-bold text-red-500 mb-4">ANTES</h3>
 
-            <img src="/antes.png" alt="Ana antes del curso" className="mx-auto rounded-full mb-4 w-32 h-32 object-cover"/>
+            <img src="/antes.webp" alt="Ana antes del curso" className="mx-auto rounded-full mb-4 w-32 h-32 object-cover" loading="lazy"/>
 
             <p className="text-brand-dark/75 mb-2">Buscando una oportunidad para crecer profesionalmente.</p>
 
@@ -85,7 +85,7 @@ const SuccessStory: React.FC = () => {
 
             <h3 className="text-2xl font-bold text-green-500 mb-4">DESPUÉS</h3>
 
-            <img src="/ana.png" alt="Ana después del curso, exitosa" className="mx-auto rounded-full mb-4 w-32 h-32 object-cover"/>
+            <img src="/ana.webp" alt="Ana después del curso, exitosa" className="mx-auto rounded-full mb-4 w-32 h-32 object-cover" loading="lazy"/>
 
             <p className="text-brand-dark/90 mb-2 font-semibold">Fundadora de su propio estudio de belleza.</p>
 

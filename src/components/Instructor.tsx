@@ -19,9 +19,10 @@ const Instructor: React.FC = () => {
           >
             <div className="relative rounded-full border-8 border-brand-gold w-2/3 aspect-square mx-auto overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-lg bg-gradient-to-br from-brand-light to-gray-300">
               <img 
-                src="/lizette.svg" 
+                src="/lizette.webp" 
                 alt="Foto de la instructora Lizette Piñero" 
                 className="object-cover object-position-bottom w-full h-full"
+                loading="lazy"
               />
             </div>
           </motion.div>
